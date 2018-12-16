@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CRUD - Relatório de Pessoas</title>
+    <link rel="stylesheet" href="../bundle/css.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="../index.html"><img src="../images/logo.png" style="width:70px;"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Cadastro de Pessoas
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../view/charts.html">Relatórios</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <br>
+
+    <div class="container">
+
+        <h1>Relatório de Pessoas</h1>
+        <div id="msg"></div>
+
+        <div>
+            <script type="text/javascript">
+
+                // Carregar a API de visualizacao e os pacotes necessarios.
+                google.load('visualization', '1.0', { 'packages': ['corechart'] });
+
+                // Especificar um callback para ser executado quando a API for carregada.
+                google.setOnLoadCallback(desenharGrafico);
+
+                /**
+                 * Funcao que preenche os dados do grafico
+                 */
+                function desenharGrafico() {
+                    // Montar os dados usados pelo grafico
+                    var dados = new google.visualization.DataTable();
+                    dados.addColumn('string', 'Gênero');
+                    dados.addColumn('number', 'Quantidades');
+                    dados.addRows([
+                        ['Masculino', 14],
+                        ['Feminino', 20]
+                    ]);
+
+                    // Configuracoes do grafico
+                    var config = {
+                        'title': 'Quantidade de alunos por gênero',
+                        'width': 400,
+                        'height': 300
+                    };
+
+                    // Instanciar o objeto de geracao de graficos de pizza,
+                    // informando o elemento HTML onde o grafico sera desenhado.
+                    var chart = new google.visualization.PieChart(document.getElementById('area_grafico'));
+
+                    // Desenhar o grafico (usando os dados e as configuracoes criadas)
+                    chart.draw(dados, config);
+                }
+            </script>
+        </div>
+
+
+        <br>
+
+    </div>
+
+    <footer class="page-footer font-small">
+        <div class="footer-copyright text-center py-3 white">© 2018 Copyright -
+            <a href="https://www.linkedin.com/in/amvjesus/"> Alexandre Maicol</a>
+        </div>
+    </footer>
+
+    <script src="../../bundle/babelpolyfill.bundle.js"></script>
+    <script src="../../bundle/index.bundle.js"></script>
+    <script src="../../bundle/chartssexoController.bundle.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+</body>
+
+</html>
