@@ -1,7 +1,4 @@
 
-INSERT INTO portifolio(descricao, detalhes)
-VALUES('Alexandre Maicol', 'Projeto WEB desenvolvido utilizando as tecnologias HTML5, Javascript, CSS3 e Spring Boot.');
-
 INSERT INTO `pessoas` (`nome`, `data`, `documento`, `sexo`, `endereco`)
 VALUES ( 'Alexandre Maicol', '1990-07-31', '5511656', 'M', 'Rua: José Dias de Avila, Nº 232');
 INSERT INTO `pessoas` (`nome`, `data`, `documento`, `sexo`, `endereco`)
